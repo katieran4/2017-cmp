@@ -1,0 +1,133 @@
+#Learn FFT on sine wave with noise
+
+import matplotlib.pyplot as plt
+import scipy.fftpack
+import scipy
+import csv
+
+
+x = scipy.linspace(0, 5 * scipy.pi, 1000)  #Establishes x values to sweep across
+#The function to calculate  f(x) values on
+wave = lambda t: 10 * scipy.sin(2 * scipy.pi * 2.0 * t) + 5 * scipy.sin(2 * scipy.pi * 8.0 * t) + 8 * 
+
+scipy.random.random(len(t))  
+signal = wave(x)    #calculates the f(x) values
+fft = abs(scipy.fft(signal))
+fft_freq = scipy.fftpack.fftfreq(signal.size, x[1] - x[0])
+
+
+plt.plot(x, signal)
+plt.title('Raw Data')
+plt.show()
+
+plt.plot(fft_freq , fft)
+plt.title('FFT Result')
+plt.xlabel('frequency')
+plt.ylabel('magnitude')
+plt.show()
+
+
+
+
+
+
+
+
+#FFT of my voice talking
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.fftpack
+from scipy import fftpack
+
+
+sound= np.loadtxt ("C:\\Users\\Katie\\Downloads\\Fts.TXT", float)
+print(np.shape(sound))
+print(sound)
+print(max(sound[0]))
+
+
+calcfft= abs(scipy.fft(sound[:,1]))
+plt.title('source data')
+plt.plot(sound[:,0],sound[:,1])
+
+#plt.xlim(0,max(sound[0]))
+#plt.ylim(min(sound[1]),max(sound[1]))
+plt.show()
+
+#len (calcfft)
+
+#print("Real part:     ", calcfft.real)
+#print("Imaginary part:", calcfft.imag)
+
+n= calcfft.size
+
+
+fftfreq= fftpack.fftfreq (n, d=.01) 
+
+#len (fftfreq)
+
+#print (fftfreq)
+#len (calcfft)
+#print (sound)
+#len (sound)
+
+
+plt.plot(fftfreq, calcfft )
+plt.title('FFT Result')
+plt.xlabel('frequency')
+plt.ylabel('magnitude')
+plt.show()
+
+
+
+
+
+
+#FFT of me singing
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.fftpack
+from scipy import fftpack
+
+
+sound= np.loadtxt ("C:\\Users\\Katie\\Downloads\\eyeknow.TXT", float)
+print(np.shape(sound))
+print(sound)
+print(max(sound[0]))
+
+
+calcfft= abs(scipy.fft(sound[:,1]))
+plt.title('source data')
+plt.plot(sound[:,0],sound[:,1])
+
+#plt.xlim(0,max(sound[0]))
+#plt.ylim(min(sound[1]),max(sound[1]))
+plt.show()
+
+#len (calcfft)
+
+#print("Real part:     ", calcfft.real)
+#print("Imaginary part:", calcfft.imag)
+
+n= calcfft.size
+
+
+fftfreq= fftpack.fftfreq (n, d=.01) 
+
+#len (fftfreq)
+
+#print (fftfreq)
+#len (calcfft)
+#print (sound)
+#len (sound)
+
+
+plt.plot(fftfreq, calcfft )
+plt.title('FFT Result')
+plt.xlabel('frequency')
+plt.ylabel('magnitude')
+plt.show()
+
+
+
+
